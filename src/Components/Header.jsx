@@ -1,18 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ThemeButton from "./ThemeButton";
 import "./../App.css";
 import { NavLink } from "react-router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
     console.log("Button clicked", isOpen);
   };
 
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (!isOpen) {
+        if (window.scrollY > lastScrollY) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      }
+
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY, isOpen]);
+
   return (
-    <header className="sticky z-50 top-0 w-full">
+    <header
+      className={`sticky z-50 top-0 w-full transition-transform duration-300 ${
+        !isVisible && !isOpen ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="flex flex-row justify-between items-center shadow-lg dark:bg-[#242424] dark:text-[var(--c-font-dark)]">
         <img
           src="/assets/logo.jpg"
