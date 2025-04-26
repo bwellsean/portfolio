@@ -5,7 +5,7 @@ const Projects = () => {
   useDocumentTitle("Projects");
 
   return (
-    <section className="flex flex-col justify-center text-[var(--c-cream)] dark:text-[var(--c-green)] items-center bg-[url(public/assets/heroFooter.svg)] bg-fill p-4">
+    <section className="flex flex-col justify-center text-[var(--c-cream)] dark:text-[var(--c-green)] items-center bg-[url(public/assets/texture.png)] bg-fill p-4">
       <h2 className="text-3xl text-[var(--c-font-light)] text-shadow-lg">
         {`<The Things`}
         <span className="bg-[var(--c-font-light)] text-[var(--c-cream)]">
