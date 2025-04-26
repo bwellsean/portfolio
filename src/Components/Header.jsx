@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header>
       <div className="flex flex-row justify-between items-center shadow-lg dark:bg-[#242424] dark:text-[var(--c-font-dark)]">
-        <img src="src/assets/logo.jpg" className="w-25 h-25 ml-4 p-2" />
+        <img src="public/assets/logo.jpg" className="w-25 h-25 ml-4 p-2" />
         {/* <div className="hidden md:flex m-4">
           <ThemeButton />
         </div> */}

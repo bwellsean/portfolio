@@ -16,13 +16,13 @@ const Hero = () => {
           <div>
             <img
               className="h-75 w-75 rounded-lg m-auto"
-              src="src/assets/cartoonIcon.svg"
+              src="public/assets/cartoonIcon.svg"
               alt="cartoon image of Sean"
             />
           </div>
           <img
             className="w-3/4 m-auto"
-            src="src/assets/heroFooter.svg"
+            src="public/assets/heroFooter.svg"
             alt="hero footer icons"
           />
         </div>
