@@ -5,7 +5,7 @@ import { NavLink } from "react-router";
 
 const Header = () => {
   return (
-    <header>
+    <header className="sticky z-50 top-0 w-full">
       <div className="flex flex-row justify-between items-center shadow-lg dark:bg-[#242424] dark:text-[var(--c-font-dark)]">
         <img src="/assets/logo.jpg" className="w-25 h-25 ml-4 p-2" />
         {/* <div className="hidden md:flex m-4">

@@ -80,12 +80,12 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form
+                onSubmit={handleSubmit}
+                className="text-[var(--c-font-light)] dark:[var(--c-font-light)]"
+              >
                 <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block text-[var(--c-font-light)] font-medium mb-2"
-                  >
+                  <label htmlFor="name" className="block font-medium mb-2">
                     Full Name *
                   </label>
                   <input
