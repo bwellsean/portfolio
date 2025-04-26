@@ -29,8 +29,8 @@ app.post("/api/send-email", async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "bwellsean@gmail.com",
-        pass: "rrwg kxaa dcrc nnzp",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 

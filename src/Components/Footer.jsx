@@ -41,6 +41,10 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      <div className="flex flex-row justify-center gap-2 text-sm">
+        <p>Copyright 2025 all rights reserved©</p>
+        <p> Created by yours truly!</p>
+      </div>
     </footer>
   );
 };
