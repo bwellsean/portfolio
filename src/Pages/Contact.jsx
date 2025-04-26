@@ -171,7 +171,7 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-[var(--c-font-light)] font-medium mb-2"
                     >
-                      What do you what to build? *
+                      What do you want to build? *
                     </label>
                     <textarea
                       id="message"
