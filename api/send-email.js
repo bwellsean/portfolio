@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-      from: `"Contact Form" <${name}>`,
+      from: `"Contact From ${name}`,
       to: emailUser,
       subject: "New Contact Form Submission",
       text: `You have a new contact form submission from:
