@@ -1,26 +1,26 @@
-import express from "express";
 import nodemailer from "nodemailer";
-import cors from "cors";
-import process from "process";
-import dotenv from "dotenv";
-dotenv.config();
 
-const app = express();
-app.use(express.json());
-app.use(
-  cors({
-    origin: "http://sean-blackwell.com",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
 
-app.post("/api/send-email", async (req, res) => {
-  console.log("Request received:", req.body); // Debugging log
+  console.log("Request received:", req.body);
   const { name, email, phone, message } = req.body;
 
   if (!name || !email || !phone || !message) {
     return res.status(400).json({ message: "All fields are required" });
+  }
+
+  // Get environment variables directly
+  const emailUser = process.env.EMAIL_USER;
+  const emailPass = process.env.EMAIL_PASS;
+
+  // Check if environment variables are set
+  if (!emailUser || !emailPass) {
+    console.error("Missing email credentials in environment variables");
+    return res.status(500).json({ message: "Server configuration error" });
   }
 
   try {
@@ -29,14 +29,14 @@ app.post("/api/send-email", async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
     const mailOptions = {
-      from: `"Contact Form" <bwellsean@gmail.com>`,
-      to: "bwellsean@gmail.com",
+      from: `"Contact Form" <${emailUser}>`,
+      to: emailUser,
       subject: "New Contact Form Submission",
       text: `You have a new contact form submission from:
 
@@ -52,9 +52,4 @@ app.post("/api/send-email", async (req, res) => {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Error sending email" });
   }
-});
-
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+}
