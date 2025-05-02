@@ -82,6 +82,9 @@ const Header = () => {
             <li className="text-2xl cursor-pointer hover:bg-[var(--c-emerald)] hover:underline hover:decoration-wavy hover:decoration-[var(--c-font-accent)] hover:-translate-x-[10px] hover:-translate-y-2 transition-all duration-300 p-2 rounded-lg hover:shadow-lg hover:text-[var(--c-cream)]">
               <NavLink to="projects">Projects</NavLink>
             </li>
+            <li className="text-2xl cursor-pointer hover:bg-purple-600 hover:underline hover:decoration-wavy hover:decoration-[var(--c-font-accent)] hover:-translate-x-[10px] hover:-translate-y-2 transition-all duration-300 p-2 rounded-lg hover:shadow-lg hover:text-[var(--c-cream)]">
+              <NavLink to="arcade">Arcade</NavLink>
+            </li>
           </ul>
         </div>
       </div>
@@ -113,6 +116,9 @@ const Header = () => {
               <NavLink to="projects" onClick={handleClick}>
                 Projects
               </NavLink>
+            </li>
+            <li className="text-2xl cursor-pointer hover:bg-[var(--c-emerald)] hover:underline hover:decoration-wavy hover:decoration-[var(--c-font-accent)] hover:-translate-x-[10px] hover:-translate-y-2 transition-all duration-300 p-2 rounded-lg hover:shadow-lg hover:text-[var(--c-cream)]">
+              <NavLink to="arcade">Arcade</NavLink>
             </li>
           </ul>
         </nav>
