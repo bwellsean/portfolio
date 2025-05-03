@@ -15,6 +15,34 @@ const ArcadePage = () => {
   });
   const [scoresLoading, setScoresLoading] = useState(false);
 
+  // Game configuration with availability status
+  const games = [
+    {
+      id: "tetris",
+      title: "Tetris",
+      bannerImg: "assets/tetrisBanner.jpg",
+      screenImg: "assets/tetrisCover.png",
+      gameLink: "/arcade/tetris",
+      available: true,
+    },
+    {
+      id: "dino",
+      title: "DinoRun",
+      bannerImg: "assets/dinoBanner.png",
+      screenImg: "assets/dinoScreen.png",
+      gameLink: "/arcade/dino",
+      available: false,
+    },
+    {
+      id: "quiz",
+      title: "Sean Quiz App",
+      bannerImg: "assets/QuizBanner.png",
+      screenImg: "assets/QuizScreen.png",
+      gameLink: "/arcade/quiz",
+      available: false,
+    },
+  ];
+
   useEffect(() => {
     const fetchUserScores = async () => {
       if (!user) return;
@@ -70,33 +98,24 @@ const ArcadePage = () => {
         )}
       </div>
       <div className="flex flex-row flex-wrap justify-center m-4 gap-6">
-        <GameCard
-          title="Tetris"
-          bannerImg={"assets/tetrisBanner.jpg"}
-          screenImg={"assets/tetrisCover.png"}
-          gameLink={"/arcade/tetris"}
-          highScore={getHighScoreDisplay("tetris")}
-        />
-        <GameCard
-          title="DinoRun"
-          bannerImg={"assets/dinoBanner.png"}
-          screenImg={"assets/dinoScreen.png"}
-          gameLink={"/arcade/dino"}
-          highScore={getHighScoreDisplay("dino")}
-        />
-        <GameCard
-          title="Sean Quiz App"
-          bannerImg={"assets/QuizBanner.png"}
-          screenImg={"assets/QuizScreen.png"}
-          gameLink={"/arcade/quiz"}
-          highScore={getHighScoreDisplay("quiz")}
-        />
-      </div>
-      <div className="absolute left-184 top-57">
-        <ComingSoon />
-      </div>
-      <div className="absolute right-57.5 top-57">
-        <ComingSoon />
+        {games.map((game) => (
+          <div key={game.id} className="relative">
+            <GameCard
+              title={game.title}
+              bannerImg={game.bannerImg}
+              screenImg={game.screenImg}
+              gameLink={game.gameLink}
+              highScore={getHighScoreDisplay(game.id)}
+            />
+            {!game.available && (
+              <div className="absolute inset-0 bg-black opacity-70 flex items-center justify-center">
+                <div className="bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transform rotate-12 text-xl">
+                  Coming Soon
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );

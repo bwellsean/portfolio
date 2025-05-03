@@ -100,7 +100,7 @@ const TetrisGameContent = () => {
       </Application>
 
       {/* next pice */}
-      <div className="absolute top-4 right-70 bg-black bg-opacity-70 p-2 rounded text-white">
+      <div className="absolute top-4 right-70 bg-black opacity-70 p-2 rounded text-white">
         <div className="text-center mb-1">Next Piece: </div>
         <div className="h-20 w-20 bg bg-gray-900 flex items-center justify-center">
           <Application
@@ -118,7 +118,7 @@ const TetrisGameContent = () => {
 
       {/* Game info overlay */}
 
-      <div className="absolute top-4 right-4 text-3xl bg-black bg-opacity-70 p-2 rounded text-white">
+      <div className="absolute top-4 right-4 text-3xl bg-black opacity-70 p-2 rounded text-white">
         <div>Score: {score}</div>
         <div>Level: {level}</div>
         <div>Lines: {lines}</div>
@@ -126,7 +126,7 @@ const TetrisGameContent = () => {
 
       {/* game over */}
       {gameOver && (
-        <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center text-white z-100">
+        <div className="absolute inset-0 bg-black opacity-80 flex flex-col items-center justify-center text-white z-100">
           <h2 className="text-4xl font-bold text-red-500 mb-4">GAME OVER</h2>
           <div className="text-2xl mb-6">
             <p className="mb-1">
@@ -207,7 +207,7 @@ const TetrisGameContent = () => {
       </button>
 
       {isPaused && !gameOver && (
-        <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center text-white">
+        <div className="absolute inset-0 bg-black opacity-70 flex items-center justify-center text-white">
           <h2 className="text-4xl font-bold">PAUSED</h2>
         </div>
       )}

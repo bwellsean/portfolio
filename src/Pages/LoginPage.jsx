@@ -16,10 +16,10 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url(assets/arcadeBg.png)] bg-center p-4">
-      <div className="bg-gray-900 bg-opacity-90 p-8 rounded-lg shadow-2xl w-full max-w-md">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-2xl w-full max-w-md">
         <h1>Arcade {isLogin ? "Login" : "Sign Up"}</h1>
 
-        <div className="bg-purple-900 bg-opacity-40 p-6 rounded-lg">
+        <div className="bg-purple-900 p-6 rounded-lg">
           {isLogin ? (
             <Login
               onSuccess={handleSuccess}

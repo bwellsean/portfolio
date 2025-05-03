@@ -38,6 +38,14 @@ const GameCard = ({ title, screenImg, bannerImg, gameLink, highScore }) => {
           PLAY
         </Link>
       </div>
+
+      {/* {comingSoon && (
+        <div className="absolute inset-0 bg-black opacity-70 flex items-center justify-center">
+          <div className="bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg transform rotate-12 text-xl">
+            Coming Soon
+          </div>
+        </div>
+      )} */}
     </div>
   );
 };
